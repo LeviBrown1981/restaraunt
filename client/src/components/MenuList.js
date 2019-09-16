@@ -1,5 +1,3 @@
-client/src/components/TodoList.js
-
 import React from 'react';
 import Menu from './Menu';
 
