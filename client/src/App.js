@@ -9,7 +9,7 @@ class App extends Component {
 
   componentDidMount() {
     // Menu make a call to our rails server to get Items
-      axios.get("/api/items")
+      axios.get("/api/menus")
         .then( res => {
           this.setState({ menus: res.data, });
         })
@@ -21,7 +21,7 @@ class App extends Component {
   addItem = (name) => {
     // Menu make api call to rails server to add item
     // Menu update state
-    axios.post('/api/items', { name })
+    axios.post('/api/menus', { name })
     .then( res => {
       const { menus, } = this.state;
       this.setState({ menus: [...menus, res.data], });
@@ -31,7 +31,7 @@ class App extends Component {
   updateMenu = (id) => {
     // Menu make api call to update Menu
     // Menu update state
-    axios.put(`/api/items/${id}`)
+    axios.put(`/api/menus/${id}`)
     .then( res => {
       const menus = this.state.menus.map( t => {
       if (t.id === id)
